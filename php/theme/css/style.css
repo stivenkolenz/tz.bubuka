@@ -254,6 +254,13 @@ body {
   background-color: #ffffff;
 }
 
+.wrap {
+  width: 100%;
+  max-width: 920px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .Login {
   border: 2px solid #111111;
   padding: 10px;
@@ -287,5 +294,31 @@ body {
 .Login__link {
   -webkit-text-decoration: underline dotted;
           text-decoration: underline dotted;
+}
+
+.DTable {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid rgba(17, 17, 17, 0.3);
+  margin: 10px 0px;
+}
+
+.DTable caption {
+  padding: 10px 0;
+  font-size: 20px;
+}
+
+.DTable thead {
+  background: #111111;
+  color: #ffffff;
+}
+
+.DTable thead th {
+  padding: 5px;
+}
+
+.DTable td {
+  border: 1px solid rgba(17, 17, 17, 0.3);
+  padding: 3px 10px;
 }
 /*# sourceMappingURL=style.css.map */

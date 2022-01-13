@@ -17,7 +17,7 @@
 	<header class='flex'>
 		[{ LOGIN }]
 	</header>
-	<main>
+	<main class='wrap'>
 		[{ CONTENT }]
 	</main>
 	<footer>

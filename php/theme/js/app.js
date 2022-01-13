@@ -35,7 +35,6 @@ const Cookie = {
 };
 
 window.addEventListener(`load`, () => {
-	console.log(Cookie.list());
 	document.addEventListener(`keypress`, (e) => {
 		if (e.keyCode === 99) {
 			console.log(Cookie.list());

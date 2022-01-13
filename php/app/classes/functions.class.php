@@ -102,4 +102,12 @@ class Functions
 			exit;
 		}
 	}
+
+	public function reindexData($data, $mainKey = 'id')
+	{
+		$arr = [];
+		foreach ($data as $key => $value)
+			$arr[$value[$mainKey]] = $value;
+		return $arr;
+	}
 }

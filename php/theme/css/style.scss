@@ -210,6 +210,32 @@ body {
 	}
 }
 
+.SortTable {
+	background: rgba($green, 0.3);
+	padding: 25px 25px;
+	// .SortTable__wrap
+	&__wrap {
+	}
+	// .SortTable__title
+	&__title {
+	}
+	// .SortTable__form
+	&__form {
+		margin-top: 25px;
+		width: 100%;
+		gap: 20px;
+		select,
+		button {
+			flex: 1;
+			height: 46px;
+		}
+		button {
+			background: $green;
+			color: $white;
+		}
+	}
+}
+
 .DTable {
 	width: 100%;
 	border-collapse: collapse;

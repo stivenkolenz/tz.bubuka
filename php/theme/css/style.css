@@ -296,6 +296,30 @@ body {
           text-decoration: underline dotted;
 }
 
+.SortTable {
+  background: rgba(0, 72, 80, 0.3);
+  padding: 25px 25px;
+}
+
+.SortTable__form {
+  margin-top: 25px;
+  width: 100%;
+  gap: 20px;
+}
+
+.SortTable__form select,
+.SortTable__form button {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  height: 46px;
+}
+
+.SortTable__form button {
+  background: #004850;
+  color: #ffffff;
+}
+
 .DTable {
   width: 100%;
   border-collapse: collapse;

@@ -2,7 +2,19 @@
 
 require_once req('table');
 
-$SQL = "SELECT *, (SELECT `name` FROM `cities` WHERE `city` = `cities`.`id`) AS `city_name`, (SELECT `country` FROM `cities` WHERE `city` = `cities`.`id`) AS `city_country`, (SELECT `name` FROM `countries` WHERE `city_country` = `countries`.`id`) AS `country_name`, (SELECT `continent` FROM `countries` WHERE `city_country` = `countries`.`id`) AS `country_continent`, (SELECT `name` FROM `continents` WHERE `country_continent` = `continents`.`id`) AS `continent_name` FROM `population` ORDER BY `continent_name` ASC;";
+$TPL->name('table_sort');
+$C->add($TPL->compile('table_sort'), 'main');
+$sort = ['`continent_name` ASC'];
+
+if (isset($_POST['sort'])) {
+	$sort[] = "`" . $DB->es($_POST['field']) . "` " . $DB->es($_POST['type']);
+}
+
+$sort = implode(', ', $sort);
+
+$SQL = "SELECT *, (SELECT `name` FROM `cities` WHERE `city` = `cities`.`id`) AS `city_name`, (SELECT `country` FROM `cities` WHERE `city` = `cities`.`id`) AS `city_country`, (SELECT `name` FROM `countries` WHERE `city_country` = `countries`.`id`) AS `country_name`, (SELECT `continent` FROM `countries` WHERE `city_country` = `countries`.`id`) AS `country_continent`, (SELECT `name` FROM `continents` WHERE `country_continent` = `continents`.`id`) AS `continent_name` FROM `population` ORDER BY {$sort};";
+
+$F->prec($SQL);
 
 $res = $DB->qf_array($SQL, 1);
 
@@ -28,7 +40,6 @@ foreach ($DB->rD() as $key => $value) {
 }
 $tables[$last] = $T->end();
 
-
-
 $C->add(implode('', $tables), 'main');
-$F->prec($res);
+
+$F->prec($_POST);

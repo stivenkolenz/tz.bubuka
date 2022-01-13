@@ -10,3 +10,19 @@ define('APP', ROOT . '/app');
 @ini_set('html_errors', false);
 
 session_start();
+
+function req($name, $path = '/app/classes/')
+{
+	if (strpos($name, '.php') !== false || strpos($name, '/') !== false) {
+		$path = ROOT . $path . $name;
+	} else {
+		$path = ROOT . $path . $name . '.class.php';
+	}
+	if (file_exists($path)) {
+		return $path;
+	} else {
+		die('Error load<br>File <b>' . $path . '</b> does not exist');
+	}
+}
+
+require_once req('engine.php', '/app/');

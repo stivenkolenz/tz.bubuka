@@ -1,0 +1,11 @@
+{
+	"DB": {
+		"TYPE": "mysql",
+		"USER": "new_remit",
+		"PASSWORD": "azxcds",
+		"NAME": "tz",
+		"HOST": "localhost"
+	},
+	"url": "/php/",
+	"title": "TZ.BUBUKA"
+}
